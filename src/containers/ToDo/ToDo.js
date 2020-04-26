@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Items from "../../components/Items/Items";
 import classes from "./ToDo.module.css";
 
 export default () => {
@@ -13,17 +14,9 @@ export default () => {
         }
     });
 
-    const itemsOutput = Object.keys(items).map(key => {
-        return (
-            <li>{items[key].text}</li>
-        );
-    });
-
     return (
         <div className={classes.ToDo}>
-            <ul>
-                {itemsOutput}
-            </ul>
+            <Items items={items} />
         </div>
     );
 }
