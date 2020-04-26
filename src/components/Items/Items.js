@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React, { useState } from "react"; 
 import classes from "./Items.module.css";
+import Item from "./Item/Item";
 
 export default ({ items }) => {
 
     const itemsOutput = Object.keys(items).map(key => {
         return (
-            <li>{items[key].text}</li>
+            <Item item={items[key]} /> 
         );
     });
 
