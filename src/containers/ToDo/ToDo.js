@@ -14,9 +14,15 @@ export default () => {
         }
     });
 
+    function deleteItem(id) {
+        const newItems = { ...items };
+        delete newItems[id];
+        setItems(newItems);
+    }
+
     return (
         <div className={classes.ToDo}>
-            <Items items={items} />
+            <Items items={items} deleteItem={deleteItem} />
         </div>
     );
 }
