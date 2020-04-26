@@ -20,9 +20,15 @@ export default () => {
         setItems(newItems);
     }
 
+    function toggleCompleteItem(id){
+       const  newItems = {...items};
+       newItems[id].completed = !newItems[id].completed;
+       setItems(newItems);
+    }
+
     return (
         <div className={classes.ToDo}>
-            <Items items={items} deleteItem={deleteItem} />
+            <Items items={items} deleteItem={deleteItem} toggleCompleteItem={toggleCompleteItem}/>
         </div>
     );
 }
