@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Items from "../../components/Items/Items";
 import classes from "./ToDo.module.css";
+import NewItem from "../../components/NewItem/NewItem";
 
 export default () => {
     const [items, setItems] = useState({
@@ -28,6 +29,7 @@ export default () => {
 
     return (
         <div className={classes.ToDo}>
+            <NewItem />
             <Items items={items} deleteItem={deleteItem} toggleCompleteItem={toggleCompleteItem}/>
         </div>
     );

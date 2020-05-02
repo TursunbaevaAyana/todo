@@ -13,5 +13,5 @@ export default ({ item, deleteItem, toggleCompleteItem }) => {
             <span onClick={toggleCompleteItem} className={classes.text}>{item.text}</span>
             <Button click={deleteItem} red>x</Button>
         </li>
-    )
+    );
 };
