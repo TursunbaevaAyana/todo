@@ -1,19 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Items from "../../components/Items/Items";
 import classes from "./ToDo.module.css";
 import NewItem from "../../components/NewItem/NewItem";
+import axios from "../../axios";
+import Loading from "../../components/UI/Loading/Loading";
 
 export default () => {
-    const [items, setItems] = useState({
-        "todo-1": {
-            text: "Hello World!",
-            completed: false,
-        },
-        "todo-2": {
-            text: "Bye World!",
-            completed: true,
-        }
-    });
+    const [items, setItems] = useState(null);
 
     function deleteItem(id) {
         const newItems = { ...items };
@@ -34,13 +27,24 @@ export default () => {
        setItems(newItems);
     }
 
-    return (
-        <div className={classes.ToDo}>
-            <NewItem addItem={addItem}/>
+    useEffect(() => {
+       axios.get("/items.json").then((responce) => setItems({...responce.data}));
+    }, []);
+ 
+    const itemsOutput = <Loading />;
+    if (items !== null) {
+        itemsOutput = (
             <Items
              items={items} 
              deleteItem={deleteItem} 
              toggleCompleteItem={toggleCompleteItem}/>
+        );
+    }
+
+    return (
+        <div className={classes.ToDo}>
+            <NewItem addItem={addItem}/> 
+            {itemsOutput}
         </div>
     );
 };

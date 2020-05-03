@@ -12,7 +12,7 @@ export default ({ items, deleteItem, toggleCompleteItem }) => {
 
     return (
         <ul className={classes.Items}>
-            {itemsOutput}=
+            {itemsOutput}
         </ul>
     );
 }
