@@ -37,7 +37,10 @@ export default () => {
     return (
         <div className={classes.ToDo}>
             <NewItem addItem={addItem}/>
-            <Items items={items} deleteItem={deleteItem} toggleCompleteItem={toggleCompleteItem}/>
+            <Items
+             items={items} 
+             deleteItem={deleteItem} 
+             toggleCompleteItem={toggleCompleteItem}/>
         </div>
     );
-}
+};
