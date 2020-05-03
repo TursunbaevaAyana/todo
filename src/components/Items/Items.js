@@ -5,7 +5,7 @@ import Item from "./Item/Item";
 export default ({ items, deleteItem, toggleCompleteItem }) => {
     const ids = Object.keys(items);
 
-    let itemsOutput = <div>Evpty list</div>;
+    let itemsOutput = <div>Empty list</div>;
     if (ids.length > 0) {
         itemsOutput = ids.map((id) => {
         return (
